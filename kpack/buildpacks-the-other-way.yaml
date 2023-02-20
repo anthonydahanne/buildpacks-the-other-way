@@ -1,0 +1,19 @@
+apiVersion: kpack.io/v1alpha2
+kind: Image
+metadata:
+  name: buildpacks-the-other-way
+  namespace: default
+spec:
+  build:
+    env:
+      - name: "BPE_SPRING_PROFILES_ACTIVE"
+        value: "h2"
+  tag: anthonydahanne/buildpacks-the-other-way
+  serviceAccountName: tutorial-service-account
+  builder:
+    name: my-builder
+    kind: Builder
+  source:
+    git:
+      url: https://github.com/anthonydahanne/buildpacks-the-other-way
+      revision: 3330be0e88baa4b3be026765f751ae072070f1b6
