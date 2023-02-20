@@ -14,8 +14,8 @@
 <mirrors>
     <mirror>
         <id>spring.io-mirror</id>
-        <name>Anthony's Central and JCenter Mirror</name>
-        <url>https://repo.spring.io/milestone/</url>
+        <name>Spring repo</name>
+        <url>https://repo.spring.io/release/</url>
         <mirrorOf>*</mirrorOf>
     </mirror>
 </mirrors>
