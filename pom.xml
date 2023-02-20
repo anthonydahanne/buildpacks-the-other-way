@@ -55,5 +55,34 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>buildpack</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+						<configuration>
+							<image>
+								<bindings>
+									<binding>${basedir}/binding/ca-certificates:/platform/bindings/my-certificates:ro</binding>
+								</bindings>
+								<buildpacks>
+									<buildpack>gcr.io/paketo-buildpacks/adoptium</buildpack>
+									<buildpack>paketo-buildpacks/java</buildpack>
+								</buildpacks>
+								<builder>paketobuildpacks/builder:0.2.316-full</builder>
+								<name>anthonydahanne/${project.artifactId}:${project.version}</name>
+								<env>
+									<BP_JVM_VERSION>17</BP_JVM_VERSION>
+								</env>
+							</image>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
