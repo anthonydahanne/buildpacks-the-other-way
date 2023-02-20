@@ -1,0 +1,8 @@
+api = "0.8"
+
+[buildpack]
+  id = "confoo/java"
+  version = "0.0.1"
+
+[[stacks]]
+  id = "*"

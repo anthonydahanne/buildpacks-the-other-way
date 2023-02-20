@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+layers_dir="$1"
+env_dir="$2/env"
+plan_path="$3"
+
+
+jar_file=$(ls *.jar)
+
+wget --no-verbose https://download.bell-sw.com/java/17.0.6+10/bellsoft-jre17.0.6+10-linux-amd64.tar.gz
+tar xzf bellsoft-jre17.0.6+10-linux-amd64.tar.gz
+cat >> "${layers_dir}/launch.toml" <<EOL
+[[processes]]
+type = "web"
+command = './jre-17.0.6/bin/java -jar $jar_file'
+default = true
+EOL
+exit 0

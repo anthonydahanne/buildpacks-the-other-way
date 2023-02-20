@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if ls *.jar &>/dev/null
+then
+  echo "Found jar file"
+else
+  exit 100
+fi
+
+exit 0
