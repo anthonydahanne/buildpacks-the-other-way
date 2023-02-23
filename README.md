@@ -1,5 +1,17 @@
 # buildpacks-the-other-way
 
+## Coming from Confoo ?
+
+Thank you, I hoped you enjoyed the presentation!
+
+### Links
+
+* [Slides](https://www.slideshare.net/anthonydahanne/buildpacks-the-other-way-to-build-container-images)
+* [Buildpacks](https://buildpacks.io)
+* [Paketo Buildpacks](https://paketo.io)
+* [Montreal Java User Group](https://www.meetup.com/montreal-jug/)
+* [Devoxx4Kids](https://www.devoxx4kids.org/quebec/)
+
 ## pack demo
 
 
@@ -70,7 +82,7 @@ Build with bindings, additional options
 pack build buildpacks-the-other-way:0.0.1-SNAPSHOT \
   --env BPE_SPRING_PROFILES_ACTIVE=h2 \
   --env BP_JVM_VERSION=17 \
-  --env BP_MAVEN_BUILD_ARGUMENTS="-B package -DskipTests"\
+  --env BP_MAVEN_BUILD_ARGUMENTS="-q package -DskipTests"\
   --env SERVICE_BINDING_ROOT=/platform/bindings \
   --volume $PWD/bindings/ca-certificates/:/platform/bindings/my-certificates \
   --buildpack=gcr.io/paketo-buildpacks/azul-zulu \
